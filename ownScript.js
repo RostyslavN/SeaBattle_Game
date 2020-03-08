@@ -6,6 +6,7 @@ const enemy = document.getElementById('enemy');
 const again = document.getElementById('again');
 const header = document.querySelector('.header');
 
+
 const game = {
 	ships: [],
 	shipCount: 0,

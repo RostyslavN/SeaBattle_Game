@@ -8,7 +8,7 @@ const header = document.querySelector('.header');
 
 const game = {
 	ships: [],
-	shipNumber: 0,
+	shipNumber: 0, // the was a bag
 	optionShip: {
 		count: [1, 2, 3, 4],
 		size: [4, 3, 2, 1]

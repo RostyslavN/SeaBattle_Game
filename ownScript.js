@@ -8,7 +8,7 @@ const header = document.querySelector('.header');
 
 const game = {
 	ships: [],
-	shipNumber: 0, // the was a bag
+	shipNumber: 0,
 	optionShip: {
 		count: [1, 2, 3, 4],
 		size: [4, 3, 2, 1]
@@ -33,12 +33,13 @@ const game = {
 		const direction = Math.random() < 0.5;
 		let x, y;
 
+		const fieldLenght = 10;
 		if(direction) {
-			x = Math.floor( Math.random() * 10 );
-			y = Math.floor( Math.random() * (10 - shipSize));
+			x = Math.floor( Math.random() * fieldLenght );
+			y = Math.floor( Math.random() * (fieldLenght - shipSize));
 		} else {
-			x = Math.floor( Math.random() * (10 - shipSize));
-			y = Math.floor( Math.random() * 10 );
+			x = Math.floor( Math.random() * (fieldLenght - shipSize));
+			y = Math.floor( Math.random() * fieldLenght );
 		}
 
 		for (let i = 0; i < shipSize; i++) {
@@ -66,12 +67,13 @@ const game = {
 		}
 	},
 	addCollision(location) {
+		const fieldLenght = 10;
 		for (let i = 0; i < location.length; i++) {
 			const startCoordX = location[i][0] - 1;
-			for (let j = startCoordX; j < startCoordX + 3; j++) {
+			for (let j = startCoordX; j < startCoordX + 3; j++) { // 3 and 1 are numbers of cells
 				const startCoordY = location[i][1] - 1;
 				for (let z = startCoordY; z < startCoordY + 3; z++) {
-					if (j >= 0 && j < 10 && z >= 0 && z < 10) {
+					if (j >= 0 && j < fieldLenght && z >= 0 && z < fieldLenght) {
 						const coord = j + '' + z;
 						if (!this.collision.includes(coord)) {
 							this.collision.push(coord);
@@ -89,7 +91,7 @@ const play = {
 	hit: 0,
 	dead: 0,
 	set updateData(data) {
-		this[data] += 1;
+		this[data]++;
 		this.render(); 
 	},
 	render() {

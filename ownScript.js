@@ -20,7 +20,7 @@ const game = {
 				const size = this.optionShip.size[i];
 				const ship = this.generateOptionsShip(size);
 				this.ships.push(ship);
-				this.shipNumber++;
+				this.shipNumber++; 
 			}
 		}
 	},

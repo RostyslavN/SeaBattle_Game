@@ -6,10 +6,9 @@ const enemy = document.getElementById('enemy');
 const again = document.getElementById('again');
 const header = document.querySelector('.header');
 
-
 const game = {
 	ships: [],
-	shipCount: 0,
+	shipNumber: 0,
 	optionShip: {
 		count: [1, 2, 3, 4],
 		size: [4, 3, 2, 1]
@@ -21,7 +20,7 @@ const game = {
 				const size = this.optionShip.size[i];
 				const ship = this.generateOptionsShip(size);
 				this.ships.push(ship);
-				this.shipCount++;
+				this.shipNumber++;
 			}
 		}
 	},
@@ -157,6 +156,8 @@ const fire = (event) => {
 const init = () => {
 	enemy.addEventListener('click', fire);
 	play.render();
+	game.generateShip();
+
 
 	again.addEventListener('click', () => {
 		location.reload();

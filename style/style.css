@@ -2,7 +2,7 @@ body {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 18px;
 	text-transform: uppercase;
-	background: url(../img/bg.jpg) center center;
+	background: url(../img/bg.jpg) center center no-repeat;
 	background-size: cover;
 }
 
@@ -20,6 +20,7 @@ main {
 table {
 	border-collapse: collapse;
 	background-color: rgba(254, 202, 137, 0.7);
+	cursor: url('../img/aim2.cur'), default; 
 }
 
 td {
